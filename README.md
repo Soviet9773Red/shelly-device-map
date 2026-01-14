@@ -126,7 +126,7 @@ All IP addresses in this repository use private RFC1918 ranges (for example, 192
 
 Before using the template in your own environment, all IP addresses must be replaced manually to match the actual addresses of your Shelly devices.
 For detailed configuration instructions, device block examples, and customization guidelines, please refer to the additional documentation:
-[README-device-config.md]("https://github.com/Soviet9773Red/shelly-device-map/blob/main/README-device-config.md")
+[README-device-config.md](https://github.com/Soviet9773Red/shelly-device-map/blob/main/README-device-config.md)
 
 
 
