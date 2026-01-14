@@ -51,7 +51,7 @@ Folder structure:
 /
 ├── index.html
 ├── maps/
-│	  ├── floor00.jpg
+│   ├── floor00.jpg
 │   └── floor01.jpg
 ├── img/
 │  	├── favicon.ico
