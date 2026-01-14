@@ -1,7 +1,7 @@
 ## Simple Shelly Home Map
 
 A lightweight, static HTML template for visualizing Shelly devices on a house or apartment floor plan.
-Intended to be used together with custom Shelly scripts (for example [shelly-elprisSE](https://github.com/Soviet9773Red/shelly-elprisSE)) running directly on the devices.
+Intended to be used together with custom Shelly scripts (for example [shelly-elprisSE](https://github.com/Soviet9773Red/shelly-elprisSE) ) running directly on the devices.
 
 It helps visualize device placement, IP addresses, and provides quick access to the Shelly Web UI, running scripts, and status pages for monitoring parameters such as memory usage, temperature, and Wi-Fi signal.
 
@@ -9,16 +9,17 @@ The template is fully static and requires no backend or server-side logic.
 It can be opened locally or hosted on a Raspberry Pi using a minimal web server.
 The project is intentionally kept minimal:
 
-- no backend,
-- no databases,
-- no Home Assistant,
-- no MQTT,
-- and no mandatory JavaScript.
+- no backend, no databases
+- no Home Assistant, no MQTT and no mandatory JavaScript.
 
 Everything works as static HTML and CSS.
 The page can be opened directly from a local PC or served from a Raspberry Pi using a minimal built-in web server (for ex., a simple Python HTTP server).
 This approach allows users to build a clear and practical home overview without introducing additional infrastructure or complexity.
 
+ [Live demo](https://soviet9773red.github.io/shelly-device-map/)
+
+> Note: Device links in the live demo use example local IP addresses  
+> and will not work in your network unless they match your own device IPs.
 
 
 ## Features
