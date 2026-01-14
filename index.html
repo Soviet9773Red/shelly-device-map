@@ -1,0 +1,333 @@
+<!--
+  Simple Shelly Home Map
+  Copyright (c) 2026 Alexander (S9773R) https://github.com/Soviet9773Red
+  Licensed under the MIT License
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Shelly Home Map</title>
+<style>
+
+/* ===================================
+   Global page appearance ========
+   Safe to customize:  - font-family, - background, - base font-size
+====================================== */
+
+body {
+    margin: 0;
+    font-family: Verdana, sans-serif; /* Change font here */
+    background: #f4f4f4;              /* Page background color */
+    font-size: 14px;                  /* Base text size */
+    text-align: center;
+}
+
+a {
+    color: #0078d4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================
+   Main container, max-width
+   defines how wide the house map can be
+====================================== */
+
+header {
+	font-weight: bold;
+	font-size: 16px;
+	padding: 6px 0 4px;
+    line-height: 1.2;
+}
+
+header, footer {
+    padding: 10px;
+}
+
+.house {
+    max-width: 1000px; /* Increase if your maps are large */
+    margin: 0 auto;
+}
+
+/* ===================================
+   Floor block
+   Controls the card around each floor
+====================================== */
+
+.floor {
+    margin: 20px auto;          /* Space between floors */
+    background: #fff;           /* Floor background */
+    border: 1px solid #ccc;     /* Floor border */
+    border-radius: 8px;
+    padding: 0;
+}
+
+.floor > h3 {
+    padding: 15px 15px 10px;
+}
+
+.floor-title {
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+/* ===================================
+   Maps or 2D/3D views of building
+====================================== */
+.map {
+    position: relative;
+	margin: 0;
+    width: 100%;
+}
+
+.map img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 8px 8px;
+}
+
+/* ===================================
+   Device overlay
+   Position is controlled via inline CSS variables:
+   Example in HTML:
+   style="--top:25; --left:50;"
+====================================== */
+.device {
+    position: absolute;
+    top: calc(var(--top) * 1%);
+    left: calc(var(--left) * 1%);
+    transform: translate(-50%, -50%);
+
+    width: 120px;        /* Device card width */
+    min-height: 80px;    /* Minimum height */
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 20%;
+    background: rgba(0, 120, 212, 0.4); /* Device background color */
+}
+
+/* Device name label
+   Change colors here if text is hard to read on your map
+*/
+.device-title {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 2px 0 4px;
+    color: #111; /* Text color */
+    background: rgba(255,255,255,0.7); /* Label background */
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+
+.device:hover {
+    background: rgba(0, 120, 212, 0.85);
+}
+
+.device img {
+    width: 32px;
+    margin-bottom: 4px;
+}
+
+.device-links {
+    margin-top: 4px;
+}
+
+.device-links a {
+    display: inline-block;
+	border: 0.5px solid rgba(0,0,0,0.6);
+    font-size: 11px;
+    margin: 2px;
+    padding: 2px 5px;
+    background: #fff;
+    color: #000;
+    border-radius: 4px;
+}
+
+
+/* ===================================
+   External links / notes
+   Can be used for: 
+   - external services, documentation links
+   - user notes
+====================================== */
+
+.external-links {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+    z-index: 10;
+    font-size: 13px;
+    line-height: 1.3;
+}
+.external-links a {
+    display: block;
+    color: #0078d4;
+    text-decoration: none;
+    margin: 4px 0;
+}
+
+.external-links a:hover {
+    color: #0056a3;
+    text-decoration: underline;
+}
+
+/* Section title / note inside external-links */
+.external-links .note {
+    display: block;
+    margin: 6px 0;
+    padding: 4px 6px;
+    font-size: 12px;
+    color: #333;
+    background: rgba(0, 0, 0, 0.05);
+    border-left: 3px solid #999;
+}
+
+/* === For mobile  devices  === */
+
+@media (max-width: 600px) {
+    body {
+        overflow-x: auto;
+    }
+    .house {
+        min-width: 768px; /* Your map became visiible with scroll */
+    }
+}
+</style>
+</head>
+
+
+<body>
+<header>
+    Shelly Device Map<br>
+    <small>Static visual overview of Shelly devices</small>
+</header>
+
+<main class="house">
+
+<!--  ============ FLOOR 1 ============-->
+<section class="floor">
+	<h3 class="floor-title">Floor 01</h3>
+	
+<figure class="map">
+	<img src="./maps/floor01.jpg" alt="Floor 1 plan">
+
+	<!--   DEVICE 1 -->
+	<div class="device" style="--top:25; --left:50;">
+		<img src="./img/plus1pm.jpg">
+		<div class="device-title">Plus1PM</div>
+		<div class="device-links">
+			<a href="http://192.168.8.162" target="_blank">192.168.8.162</a>
+			<a href="http://192.168.8.162/script/1" target="_blank">Script1</a>
+			<a href="http://192.168.8.162/rpc/Shelly.GetStatus" target="_blank">Status</a>
+		</div>
+	</div>
+
+	<!--   DEVICE 2 -->
+	<div class="device" style="--top:41.4; --left:23;">
+		<img src="./img/plugS.jpg">
+		<div class="device-title">PlugS Lamp</div>
+		<div class="device-links">
+			<a href="http://192.168.8.160" target="_blank">192.168.8.160</a>
+			<a href="http://192.168.8.160/script/1" target="_blank">Script1</a>
+			<a href="http://192.168.8.160/rpc/Shelly.GetStatus" target="_blank">Status</a>
+		</div>
+	</div>
+
+	<!--   DEVICE 3 -->
+	<div class="device" style="--top:35; --left:80;">
+		<img src="./img/pro3.jpg">
+		<div class="device-title">Pro3 Boiler</div>
+		<div class="device-links">
+			<a href="http://192.168.8.145" target="_blank">192.168.8.145</a>
+			<a href="http://192.168.8.145/script/2" target="_blank">Script2</a>
+			<a href="http://192.168.8.145/rpc/Shelly.GetStatus" target="_blank">Status</a>
+		</div>
+	</div>
+
+	<!--   DEVICE 4 -->
+	<div class="device" style="--top:87; --left:49;">
+		<img src="./img/plus1.jpg">
+		<div class="device-title">Plus1 Heater</div>
+		<div class="device-links">
+			<a href="http://192.168.8.200" target="_blank">192.168.8.200</a>
+			<a href="http://192.168.8.200/script/2" target="_blank">Script2</a>
+			<a href="http://192.168.8.200/rpc/Shelly.GetStatus" target="_blank">Status</a>
+		</div>
+	</div>
+	
+</figure>
+
+</section>
+
+
+<!--  ============ Floor 00 ============ -->
+<section class="floor">
+	<h3 class="floor-title">Floor 00</h3>
+	
+<figure class="map">
+	<img src="./maps/floor00.jpg">
+
+	<!--   DEVICE 5 -->
+	<div class="device" style="--top:39; --left:40;">
+	<!--	<img src="./img/plus1pm.jpg"> if you do not want to see an image-->
+		<div class="device-title">Plus1PM Heater</div>
+		<div class="device-links">
+			<a href="http://192.168.8.119" target="_blank">192.168.8.119</a>
+			<a href="http://192.168.8.119/script/4" target="_blank">Script4</a>
+			<a href="http://192.168.8.119/rpc/Shelly.GetStatus" target="_blank">Status</a>
+		</div>
+	</div>
+	
+	<!-- Device 6 -->
+    <div class="device" style="--top:64.5; --left:41;">
+        <img src="./img/plusHT.jpg">
+        <div class="device-title">H&T</div>
+        <div class="device-links">
+			<a href="http://192.168.8.138" target="_blank">192.168.8.138</a>
+			<a href="http://192.168.8.138/rpc/Shelly.GetConfig?id=0"target="_blank">Config</a>
+            <a href="http://192.168.8.138/rpc/Shelly.GetStatus" target="_blank">Status</a>
+			<a href="http://192.168.8.138/rpc/Temperature.GetStatus?id=0" target="_blank">T,°C</a>
+			<a href="http://192.168.8.138/rpc/Humidity.GetStatus?id=0" target="_blank">H,%</a>
+        </div>
+	</div>
+
+<!--Links and Notes -->
+<div class="external-links" style="top:5%; left:5%;">
+
+    <span class="note">Electricity prices</span>
+    <a href="https://www.elprisetjustnu.se/" target="_blank">elprisetjustnu.se</a>
+    <a href="https://elen.nu/" target="_blank">elen.nu</a>
+
+    <span class="note">Nordic markets</span>
+    <a href="https://www.elprisenligenu.dk/" target="_blank">Denmark</a>
+    <a href="https://www.hvakosterstrommen.no/" target="_blank">Norway</a>
+
+</div>
+
+</figure>
+
+</section>
+
+
+</main>
+
+<footer>
+    <small>Static Shelly Home | v1.2.1 | &copy;2026 <a href="https://github.com/Soviet9773Red">S9773R</a></small>
+</footer>
+
+</body>
+</html>
