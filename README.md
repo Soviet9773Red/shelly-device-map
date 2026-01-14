@@ -135,4 +135,3 @@ For detailed configuration instructions, device block examples, and customizatio
 =======
 # shelly-device-map
 A lightweight, static HTML template for visualizing Shelly devices on your local network
->>>>>>> 8376198c9dbd15d6d6c5cfa4715653552a3be01e
