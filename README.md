@@ -22,7 +22,7 @@ This approach allows users to build a clear and practical home overview without 
 > and will not work in your network unless they match your own device IPs.
 
 
-## Features
+### Features
 
 - Fully static HTML + CSS
 - Manual device positioning using CSS variables
@@ -32,7 +32,7 @@ This approach allows users to build a clear and practical home overview without 
 
 
 
-## How it works
+### How it works
 
 Each device is positioned manually using inline CSS variables:
 
@@ -54,7 +54,7 @@ Folder structure:
 │   ├── floor00.jpg
 │   └── floor01.jpg
 ├── img/
-│  	├── favicon.ico
+│   ├── favicon.ico
 │   ├── plus1pm.jpg
 │   ├── plus1.jpg
 │   ├── pro3.jpg
@@ -64,7 +64,7 @@ Folder structure:
 
 ```
 
-## Installation and file structure
+### Installation and file structure
 
 To use this template, keep the directory structure unchanged.
 Copy the following structure to your local computer or server:
@@ -94,7 +94,7 @@ The file index.html can be opened directly in a browser
 or served from any simple web server.
 
 
-## File naming
+### File naming
 
 The main file is named index.html by default.
 This is intentional and allows:
@@ -110,7 +110,7 @@ If needed, you may rename index.html to another name
 but in most cases this is not recommended.
 
 
-## External links and notes
+### External links and notes
 
 You can place additional notes or external links directly on the map:
 
@@ -121,15 +121,26 @@ You can place additional notes or external links directly on the map:
 </div>
 ```
 
-## IP addresses
+### IP addresses
 
 All IP addresses in this repository use private RFC1918 ranges (for example, 192.168.x.x) and are intended for local testing only.
-
-Before using the template in your own environment, all IP addresses must be replaced manually to match the actual addresses of your Shelly devices.
+Before using the template in your own environment, all IP addresses must be replaced manually to match the actual addresses of your Shelly devices.   
 For detailed configuration instructions, device block examples, and customization guidelines, please refer to the additional documentation:
 [device-config.md](https://github.com/Soviet9773Red/shelly-device-map/blob/main/device-config.md)
 
 
+### Intended usage
 
-## License: MIT License
-© 2026 Alexander [S9773R](https://github.com/Soviet9773Red)
+This project is designed for people who want a **simple and transparent overview**
+of their Shelly setup without introducing complex infrastructure.
+
+It is suitable for:
+- local use on a PC,
+- hosting on a Raspberry Pi,
+- testing and prototyping a Shelly-based home setup.
+
+Basic HTML knowledge is required for customization, but no advanced programming skills are needed.
+
+---
+
+License: MIT License: © 2026 Alexander [S9773R](https://github.com/Soviet9773Red)
