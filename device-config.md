@@ -124,14 +124,8 @@ There is no hard limit on the number of floors.
 
 If an image is not needed, simply remove or comment out the `<img>` tag.
 
-## Intended usage
+---
 
 This project is designed for people who want a **simple and transparent overview**
 of their Shelly setup without introducing complex infrastructure.
-
-It is suitable for:
-- local use on a PC,
-- hosting on a Raspberry Pi,
-- testing and prototyping a Shelly-based home setup.
-
 Basic HTML knowledge is required for customization, but no advanced programming skills are needed.
